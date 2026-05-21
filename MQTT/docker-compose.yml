@@ -1,0 +1,24 @@
+services:
+  broker_a:
+    image: eclipse-mosquitto:latest
+    container_name: broker_a
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto:/mosquitto
+    networks:
+      - sub-net
+
+  broker_b:
+    image: eclipse-mosquitto:latest
+    container_name: broker_b
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto:/mosquitto
+    networks:
+      - sub-net
+
+networks:
+  sub-net:
+    driver: bridge
