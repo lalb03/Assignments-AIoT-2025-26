@@ -1,0 +1,13 @@
+\section{Exercise 2 - TIG Dashoboard}
+
+I built a dashboard to monitor the data received from the MQTT server at "\texttt{tcp://eu1.cloud.thethings.network:1883}".
+
+In particular, I used Telegraf to collect the data coming from the MQTT Server and InfluxDB to store it. Then, using Grafana, I created a dashboard to visualize the data. All components were running inside Docker containers.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Resources/Grafana.pdf} % <-- replace with your filename
+    \caption{Grafana dashboard}
+\end{figure}
+
+

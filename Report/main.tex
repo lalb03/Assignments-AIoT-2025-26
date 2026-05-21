@@ -1,0 +1,58 @@
+\documentclass[a4paper, 12pt, colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=blue, hidelinks]{article}
+\usepackage{xcolor}
+
+\usepackage[a-1b]{pdfx}
+
+\usepackage[italian]{babel} % Language
+%Font
+\usepackage{fontspec}
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\begin{comment}
+    add a specific font here
+    \setmainfont{MiloTE}[
+      Path = ./Resources/Font/,
+      Extension = .ttf,
+      BoldFont = MiloTE-Bold,
+      ItalicFont = MiloTE-Ita,
+    ]
+\end{comment}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{csquotes}
+\geometry{a4paper,inner=4cm,outer=3cm,top=3cm,bottom=2.5cm}
+
+\usepackage{float} % Required for the [H] option
+\usepackage{caption}
+%\captionsetup[figure]{font=small,labelfont=small}
+
+\usepackage{setspace}
+\setstretch{1.5}
+\setlength{\parindent}{20pt}
+%Bibliografia
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+
+
+\usepackage{fontspec}
+\begin{document}
+\pagenumbering{roman}
+
+\input{Tesi/Frontespizio}
+\tableofcontents % Table of contents
+\newpage
+
+\pagenumbering{arabic}
+\setlength{\parindent}{0pt}
+\setcounter{page}{1}
+\input{Tesi/Ex1}
+\newpage
+\input{Tesi/Ex2}
+\newpage
+\input{Tesi/Ex3}
+\input{Tesi/Ex4_5}
+
+\end{document}
+

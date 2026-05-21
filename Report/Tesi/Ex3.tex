@@ -1,0 +1,53 @@
+\section{Exercise 3 - MQTT Brokers}
+
+For this exercise, I wrote a docker-compose file to run 2 MQTT brokers simultaneously in 2 different containers. In particular:
+\begin{itemize}
+    \item Each broker has its own container name;
+    \item \texttt{broker\_a} is accessible at '\texttt{localhost:1883}';
+    \item \texttt{broker\_a} is accessible at '\texttt{localhost:1884}'. 
+\end{itemize}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    keywordstyle=\color{blue},
+}
+
+\lstdefinelanguage{yaml}{
+  morekeywords={true,false,null,y,n},
+  sensitive=false,
+  morecomment=[l]{\#},
+  morestring=[b]",
+  morestring=[b]',
+}
+% \newpage
+\begin{lstlisting}[language=yaml]
+services:
+  broker_a:
+    image: eclipse-mosquitto:latest
+    container_name: broker_a
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto:/mosquitto
+    networks:
+      - sub-net
+
+  broker_b:
+    image: eclipse-mosquitto:latest
+    container_name: broker_b
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto:/mosquitto
+    networks:
+      - sub-net
+
+networks:
+  sub-net:
+    driver: bridge
+\end{lstlisting}
+
+You can find the docker-compose file showed above, visiting the following link: \url{https://github.com/lalb03/Assignments-AIoT-2025-26/tree/9867300dca86d1b2c51eddc934450566e5989297/MQTT}
